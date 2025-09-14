@@ -1,0 +1,58 @@
+.carousel {
+  position: relative;
+  width: 100%; /* prend toute la largeur de l'écran */
+  height: 80vh; /* hauteur responsive, ajustable selon besoin */
+  overflow: hidden;
+}
+
+.carousel-inner {
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* image couvre tout le conteneur sans déformation */
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+/* Boutons sur l'image */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-size: 2.5rem;
+  border-radius: 50%;
+  z-index: 10;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-btn:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.carousel-btn.prev {
+  left: 20px; /* distance du bord gauche */
+}
+
+.carousel-btn.next {
+  right: 20px; /* distance du bord droit */
+}
+
+/* Responsive : sur petits écrans, réduire taille boutons */
+@media (max-width: 768px) {
+  .carousel-btn {
+    font-size: 1.8rem;
+    padding: 8px 16px;
+  }
+  .carousel {
+    height: 40vh; /* moins haut sur mobile */
+  }
+}
