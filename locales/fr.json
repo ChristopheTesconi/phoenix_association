@@ -1,0 +1,36 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "mission": "Notre Mission",
+    "contact": "Contact",
+    "legal": "Mentions légales"
+  },
+  "home": {
+    "welcome": "Bienvenue à Phoenix Association",
+    "description": "Phoenix Association est une organisation humanitaire dédiée à l'amélioration des conditions de vie des communautés vulnérables à travers le monde.",
+    "ourValues": "Nos Valeurs",
+    "solidarity": "Solidarité",
+    "solidarityText": "Nous croyons en la force de l'entraide et du soutien mutuel pour surmonter les défis.",
+    "sustainable": "Développement Durable",
+    "sustainableText": "Nos actions visent à créer un impact positif et durable pour les générations futures.",
+    "innovation": "Innovation",
+    "innovationText": "Nous adoptons des approches créatives et innovantes pour résoudre les problèmes humanitaires.",
+    "actionAreas": "Nos Domaines d'Action",
+    "education": "Éducation",
+    "educationText": "Accès à l'éducation pour tous les enfants, formation professionnelle et alphabétisation.",
+    "health": "Santé",
+    "healthText": "Programmes de santé préventive, accès aux soins médicaux et sensibilisation.",
+    "agriculture": "Agriculture Durable",
+    "agricultureText": "Soutien aux agriculteurs locaux et promotion de pratiques agricoles durables.",
+    "water": "Eau Potable",
+    "waterText": "Installation de puits et systèmes d'assainissement dans les zones défavorisées.",
+    "joinUs": "Rejoignez-nous",
+    "joinUsText": "Ensemble, nous pouvons faire la différence. Découvrez notre mission et comment vous pouvez contribuer.",
+    "discoverMission": "Découvrir notre mission",
+    "contactUs": "Nous contacter"
+  },
+  "footer": {
+    "tagline": "Ensemble pour un monde meilleur",
+    "rights": "Tous droits réservés"
+  }
+}

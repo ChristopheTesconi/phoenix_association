@@ -1,0 +1,45 @@
+.navbar {
+  background-color: #b58900;
+}
+
+.navbarBrand {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+
+.navbarBrand img {
+  max-height: 50px;
+  width: auto !important;
+  height: auto !important;
+}
+
+/* Espacement entre les liens */
+.navbar :global(.nav-item) {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+/* Augmenter la taille des liens de navigation */
+.navbar :global(.nav-link) {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #ffffff !important;
+  transition: color 0.3s ease;
+}
+
+.navbar :global(.nav-link:hover) {
+  color: #002b36 !important;
+}
+
+/* Responsive : taille normale sur mobile */
+@media (max-width: 991px) {
+  .navbar :global(.nav-link) {
+    font-size: 1rem;
+  }
+
+  .navbar :global(.nav-item) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

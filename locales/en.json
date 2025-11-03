@@ -1,0 +1,36 @@
+{
+  "nav": {
+    "home": "Home",
+    "mission": "Our Mission",
+    "contact": "Contact",
+    "legal": "Legal Notice"
+  },
+  "home": {
+    "welcome": "Welcome to Phoenix Association",
+    "description": "Phoenix Association is a humanitarian organization dedicated to improving the living conditions of vulnerable communities worldwide.",
+    "ourValues": "Our Values",
+    "solidarity": "Solidarity",
+    "solidarityText": "We believe in the power of mutual aid and support to overcome challenges.",
+    "sustainable": "Sustainable Development",
+    "sustainableText": "Our actions aim to create a positive and lasting impact for future generations.",
+    "innovation": "Innovation",
+    "innovationText": "We adopt creative and innovative approaches to solve humanitarian problems.",
+    "actionAreas": "Our Areas of Action",
+    "education": "Education",
+    "educationText": "Access to education for all children, professional training and literacy.",
+    "health": "Health",
+    "healthText": "Preventive health programs, access to medical care and awareness.",
+    "agriculture": "Sustainable Agriculture",
+    "agricultureText": "Support for local farmers and promotion of sustainable agricultural practices.",
+    "water": "Clean Water",
+    "waterText": "Installation of wells and sanitation systems in underserved areas.",
+    "joinUs": "Join Us",
+    "joinUsText": "Together, we can make a difference. Discover our mission and how you can contribute.",
+    "discoverMission": "Discover our mission",
+    "contactUs": "Contact us"
+  },
+  "footer": {
+    "tagline": "Together for a better world",
+    "rights": "All rights reserved"
+  }
+}

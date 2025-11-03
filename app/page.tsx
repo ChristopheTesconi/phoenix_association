@@ -1,65 +1,115 @@
-import Image from "next/image";
+import Carousel from "@/components/sections/Carousel/Carousel";
+import NosValeurs from "@/components/sections/NosValeurs/NosValeurs";
+import NosServices from "@/components/sections/NosServices/NosServices";
+import NotreMission from "@/components/sections/NotreMission/NotreMission";
+import Contact from "@/components/sections/Contact/Contact";
 
 export default function Home() {
+  // Images du carousel - à remplacer par vos vraies images
+  const carouselImages = [
+    {
+      src: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1200&h=500&fit=crop",
+      alt: "Solidarité et entraide",
+      caption: "Ensemble pour un monde meilleur",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1200&h=500&fit=crop",
+      alt: "Projets humanitaires",
+      caption: "Des projets qui changent des vies",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=1200&h=500&fit=crop",
+      alt: "Développement durable",
+      caption: "Un avenir durable pour tous",
+    },
+  ];
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div id="accueil">
+      {/* Section Bienvenue */}
+      <section className="container my-5">
+        <div className="row">
+          <div className="col-lg-10 mx-auto text-center">
+            <h1 className="display-4 mb-4">Bienvenue à Phoenix Accueil</h1>
+            <p className="lead">
+              Bienvenue à notre lieu de vie Phoenix Accueil situé à Rodilhan,
+              une villa accueillante avec un grand jardin et une piscine,
+              offrant un cadre sûr et stimulant.
+            </p>
+            <p className="lead">
+              Nous accompagnons 6 enfants et adolescents en protection de
+              l&apos;enfance - accueil judiciaires, provisoires et mineurs non
+              accompagnés - ainsi que 3 jeunes majeurs dans notre annexe à
+              Nîmes, favorisant leur autonomie et leur insertion.
+            </p>
+            <p className="lead">
+              Notre structure propose un accompagnement global : scolaire,
+              éducatif, social et santé. Nous disposons également d&apos;un
+              jardin partagé à Remoulins, collaborant avec des partenaires tels
+              que l&apos;ITEP, et organisons des séjours au camping de
+              l&apos;Espiguette, locataire de longue durée, pour des moments de
+              détente et d&apos;apprentissage en dehors de la villa.
+            </p>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Hero Section avec Carousel */}
+      <section className="mb-5">
+        <Carousel images={carouselImages} autoPlay={true} interval={5000} />
+      </section>
+
+      {/* Section Nos Valeurs */}
+      <NosValeurs />
+
+      {/* Section Nos Services */}
+      <NosServices />
+
+      {/* 20 ans du LVA */}
+      <section className="container my-5">
+        <div className="row">
+          <div className="col-lg-8 mx-auto">
+            <div className="card bg-primary text-white text-center p-4">
+              <div className="card-body">
+                <h3 className="mb-3">🎉 20 ans d&apos;engagement</h3>
+                <p className="lead mb-0">
+                  En 2024, Phoenix Accueil a célébré ses 20 ans d&apos;accompagnement
+                  auprès des jeunes en protection de l&apos;enfance. Deux décennies
+                  riches d&apos;expériences, de parcours de vie et d&apos;engagement quotidien.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-      </main>
+      </section>
+
+      {/* Call to Action */}
+      <section className="container my-5 text-center">
+        <div className="row">
+          <div className="col-lg-8 mx-auto">
+            <h2 className="mb-4">En savoir plus</h2>
+            <p className="lead mb-4">
+              Découvrez notre lieu de vie et notre approche de
+              l&apos;accompagnement. Pour toute demande d&apos;information ou
+              d&apos;orientation, n&apos;hésitez pas à nous contacter.
+            </p>
+            <div className="d-flex gap-3 justify-content-center flex-wrap">
+              <a href="#notre-mission" className="btn btn-primary btn-lg">
+                Notre projet éducatif
+              </a>
+              <a href="#contact" className="btn btn-outline-primary btn-lg">
+                Nous contacter
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section Notre Mission */}
+      <NotreMission />
+
+      {/* Section Contact */}
+      <Contact />
     </div>
   );
 }
