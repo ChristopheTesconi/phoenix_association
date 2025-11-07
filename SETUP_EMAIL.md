@@ -1,6 +1,6 @@
 # Configuration de l'envoi d'emails - Formulaire de contact
 
-Le formulaire de contact envoie maintenant les emails à **lva@phoenixaccueil.org** via Resend.
+Le formulaire de contact envoie maintenant les emails à **responsable-lva@phoenixaccueil.org** via Resend.
 
 ## Configuration requise
 
@@ -51,7 +51,7 @@ Par défaut, les emails sont envoyés depuis `onboarding@resend.dev`. Pour utili
 1. Allez sur votre site en local : http://localhost:3000
 2. Scrollez jusqu'à la section "Contactez-nous"
 3. Remplissez le formulaire et envoyez
-4. Vérifiez que l'email arrive à **lva@phoenixaccueil.org**
+4. Vérifiez que l'email arrive à **responsable-lva@phoenixaccueil.org**
 
 ## Dépannage
 

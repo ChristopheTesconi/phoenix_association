@@ -19,7 +19,7 @@ export async function POST(request: Request) {
     // Envoi de l'email
     const { data, error } = await resend.emails.send({
       from: 'Phoenix Accueil <onboarding@resend.dev>', // Adresse par défaut Resend (à remplacer par votre domaine)
-      to: ['lva@phoenixaccueil.org'],
+      to: ['responsable-lva@phoenixaccueil.org'],
       replyTo: email,
       subject: `[Contact Site] ${subject}`,
       html: `
