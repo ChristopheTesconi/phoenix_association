@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import styles from "./Footer.module.css";
 
 interface FooterProps {
@@ -9,6 +10,8 @@ interface FooterProps {
 
 export default function Footer({ locale = "fr" }: FooterProps) {
   const currentYear = new Date().getFullYear();
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
 
   const content = {
     fr: {
@@ -62,25 +65,34 @@ export default function Footer({ locale = "fr" }: FooterProps) {
   const text = locale === "en" ? content.en : content.fr;
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const navbarHeight = 100;
-      const elementPosition =
-        element.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = elementPosition - navbarHeight;
+    if (isHomePage) {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const navbarHeight = 100;
+        const elementPosition =
+          element.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - navbarHeight;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
+    } else {
+      // Si on n'est pas sur la page d'accueil, naviguer vers la page d'accueil avec l'ancre
+      window.location.href = `/#${sectionId}`;
     }
   };
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    if (isHomePage) {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    } else {
+      window.location.href = "/";
+    }
   };
 
   return (
