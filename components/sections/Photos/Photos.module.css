@@ -1,0 +1,179 @@
+/* Card d'accordéon */
+.accordionCard {
+  max-width: 1040px;
+  margin: 2rem auto 1.5rem auto;
+  border: none;
+}
+
+/* Header d'accordéon */
+.accordionHeader {
+  transition: background-color 0.3s ease;
+}
+
+.accordionHeader:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Contenu d'accordéon */
+.accordionContent {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+/* Bouton + */
+.toggleBtn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  color: #b58900;
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.toggleBtn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.toggleBtn:active {
+  transform: scale(0.9);
+}
+
+/* Galerie d'images */
+.photoGallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.photoWrapper {
+  flex: 1;
+  min-width: 200px;
+  aspect-ratio: 1;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.photoWrapper:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(181, 137, 0, 0.3);
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.toggleIcon {
+  line-height: 1;
+  display: block;
+  margin-top: -2px;
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.lightboxContent {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightboxImage {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+}
+
+.lightboxClose {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  background: transparent;
+  border: none;
+  color: #b58900;
+  font-size: 3rem;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+  line-height: 1;
+}
+
+.lightboxClose:hover {
+  transform: scale(1.2);
+  color: #fff;
+}
+
+/* Responsive Mobile */
+@media (max-width: 768px) {
+  .accordionCard {
+    max-width: 100%;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  .toggleBtn {
+    width: 35px;
+    height: 35px;
+    font-size: 1.25rem;
+  }
+
+  .photoGallery {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .photoWrapper {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    aspect-ratio: 1;
+  }
+}

@@ -13,7 +13,7 @@ export default function NosValeurs() {
               <div className="fs-1 mb-3">🏠</div>
               <h5 className="card-title">Échelle Humaine</h5>
               <p className="card-text">
-                Structure à taille humaine accueillant un nombre limité de résidents pour garantir un suivi véritablement personnalisé.
+                Structure à taille humaine accueillant un nombre limité de jeunes pour garantir un suivi véritablement personnalisé.
               </p>
             </div>
           </div>

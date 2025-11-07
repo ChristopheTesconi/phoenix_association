@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import styles from './Navbar.module.css';
 
 interface NavbarProps {
@@ -11,24 +12,41 @@ interface NavbarProps {
 
 export default function Navbar({ locale = 'fr' }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const pathname = usePathname();
+  const isHomePage = pathname === '/';
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
   };
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const navbarHeight = 100;
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = elementPosition - navbarHeight;
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
+  const handleNavigation = (sectionId?: string) => {
+    if (isHomePage) {
+      if (sectionId) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const navbarHeight = 100;
+          const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+          const offsetPosition = elementPosition - navbarHeight;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    } else {
+      // Si on n'est pas sur la page d'accueil, naviguer vers la page d'accueil avec l'ancre
+      window.location.href = sectionId ? `/#${sectionId}` : '/';
     }
     setIsOpen(false);
+    setDropdownOpen(false);
   };
 
   const navLinks = {
@@ -37,6 +55,12 @@ export default function Navbar({ locale = 'fr' }: NavbarProps) {
       values: 'Nos Valeurs',
       services: 'Nos Services',
       mission: 'Projet Éducatif',
+      approach: 'Notre Approche',
+      publicSpecificites: 'Public & Spécificités',
+      principes: 'Nos Principes d\'Action',
+      typesAccueil: 'Nos Types d\'Accueil',
+      lieux: 'Nos Lieux de Vie',
+      partenaires: 'Nos Partenaires',
       contact: 'Contact'
     },
     en: {
@@ -44,6 +68,12 @@ export default function Navbar({ locale = 'fr' }: NavbarProps) {
       values: 'Our Values',
       services: 'Our Services',
       mission: 'Educational Project',
+      approach: 'Our Approach',
+      publicSpecificites: 'Public & Specificities',
+      principes: 'Our Action Principles',
+      typesAccueil: 'Our Reception Types',
+      lieux: 'Our Places',
+      partenaires: 'Our Partners',
       contact: 'Contact'
     }
   };
@@ -80,7 +110,7 @@ export default function Navbar({ locale = 'fr' }: NavbarProps) {
             <li className="nav-item">
               <a
                 className="nav-link"
-                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                onClick={() => handleNavigation()}
                 style={{ cursor: 'pointer' }}
               >
                 {links.home}
@@ -89,7 +119,7 @@ export default function Navbar({ locale = 'fr' }: NavbarProps) {
             <li className="nav-item">
               <a
                 className="nav-link"
-                onClick={() => scrollToSection('nos-valeurs')}
+                onClick={() => handleNavigation('nos-valeurs')}
                 style={{ cursor: 'pointer' }}
               >
                 {links.values}
@@ -98,7 +128,7 @@ export default function Navbar({ locale = 'fr' }: NavbarProps) {
             <li className="nav-item">
               <a
                 className="nav-link"
-                onClick={() => scrollToSection('nos-services')}
+                onClick={() => handleNavigation('nos-services')}
                 style={{ cursor: 'pointer' }}
               >
                 {links.services}
@@ -107,16 +137,74 @@ export default function Navbar({ locale = 'fr' }: NavbarProps) {
             <li className="nav-item">
               <a
                 className="nav-link"
-                onClick={() => scrollToSection('notre-mission')}
+                onClick={() => handleNavigation('notre-mission')}
                 style={{ cursor: 'pointer' }}
               >
                 {links.mission}
               </a>
             </li>
+            <li className={`nav-item dropdown ${dropdownOpen ? 'show' : ''}`}>
+              <a
+                className="nav-link dropdown-toggle"
+                onClick={toggleDropdown}
+                style={{ cursor: 'pointer' }}
+                role="button"
+                aria-expanded={dropdownOpen}
+              >
+                {links.approach}
+              </a>
+              <ul className={`dropdown-menu ${dropdownOpen ? 'show' : ''}`}>
+                <li>
+                  <a
+                    className="dropdown-item"
+                    onClick={() => handleNavigation('notre-public')}
+                    style={{ cursor: 'pointer' }}
+                  >
+                    {links.publicSpecificites}
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="dropdown-item"
+                    onClick={() => handleNavigation('nos-principes-action')}
+                    style={{ cursor: 'pointer' }}
+                  >
+                    {links.principes}
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="dropdown-item"
+                    onClick={() => handleNavigation('nos-types-accueil')}
+                    style={{ cursor: 'pointer' }}
+                  >
+                    {links.typesAccueil}
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="dropdown-item"
+                    onClick={() => handleNavigation('nos-lieux')}
+                    style={{ cursor: 'pointer' }}
+                  >
+                    {links.lieux}
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="dropdown-item"
+                    onClick={() => handleNavigation('nos-partenaires')}
+                    style={{ cursor: 'pointer' }}
+                  >
+                    {links.partenaires}
+                  </a>
+                </li>
+              </ul>
+            </li>
             <li className="nav-item">
               <a
                 className="nav-link"
-                onClick={() => scrollToSection('contact')}
+                onClick={() => handleNavigation('contact')}
                 style={{ cursor: 'pointer' }}
               >
                 {links.contact}

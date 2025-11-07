@@ -1,3 +1,13 @@
 .contactSection {
   scroll-margin-top: 70px;
 }
+
+.contactSection a .card {
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contactSection a .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(181, 137, 0, 0.3);
+}

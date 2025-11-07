@@ -18,9 +18,16 @@ export default function Footer({ locale = "fr" }: FooterProps) {
       phone: "06 80 42 22 30",
       email: "association@phoenixaccueil.org",
       quickLinks: "Liens Rapides",
+      approach: "Notre Approche",
       home: "Accueil",
-      aboutUs: "Notre Mission",
+      values: "Nos Valeurs",
       services: "Nos Services",
+      mission: "Projet Éducatif",
+      publicSpecificites: "Public & Spécificités",
+      principes: "Nos Principes d'Action",
+      typesAccueil: "Nos Types d'Accueil",
+      lieux: "Nos Lieux de Vie",
+      partenaires: "Nos Partenaires",
       contact: "Contact",
       legal: "Mentions légales",
       copyright: "Tous droits réservés",
@@ -34,9 +41,16 @@ export default function Footer({ locale = "fr" }: FooterProps) {
       phone: "06 80 42 22 30",
       email: "association@phoenixaccueil.org",
       quickLinks: "Quick Links",
+      approach: "Our Approach",
       home: "Home",
-      aboutUs: "Our Mission",
+      values: "Our Values",
       services: "Our Services",
+      mission: "Educational Project",
+      publicSpecificites: "Public & Specificities",
+      principes: "Our Action Principles",
+      typesAccueil: "Our Reception Types",
+      lieux: "Our Places",
+      partenaires: "Our Partners",
       contact: "Contact",
       legal: "Legal Notice",
       copyright: "All rights reserved",
@@ -88,7 +102,8 @@ export default function Footer({ locale = "fr" }: FooterProps) {
                 aria-label="Ouvrir l'adresse dans Google Maps"
                 className={styles.addressLink}
               >
-                <p className={styles.footerTagline}>{text.tagline}</p>
+                <span className={styles.footerTagline}>{text.tagline}</span>
+                <br />
                 9 rue de la Marine
                 <br />
                 30230 Rodilhan (Gard)
@@ -113,7 +128,7 @@ export default function Footer({ locale = "fr" }: FooterProps) {
           </address>
         </div>
 
-        {/* Section Quick Links */}
+        {/* Section Liens Rapides */}
         <div className={styles.footerSection}>
           <h3 className={styles.footerHeading}>{text.quickLinks}</h3>
           <nav aria-label="Footer navigation">
@@ -130,12 +145,12 @@ export default function Footer({ locale = "fr" }: FooterProps) {
               </li>
               <li>
                 <a
-                  onClick={() => scrollToSection("notre-mission")}
+                  onClick={() => scrollToSection("nos-valeurs")}
                   style={{ cursor: "pointer" }}
-                  aria-label="En savoir plus sur notre mission"
+                  aria-label="Découvrir nos valeurs"
                   className={styles.footerLink}
                 >
-                  {text.aboutUs}
+                  {text.values}
                 </a>
               </li>
               <li>
@@ -146,6 +161,16 @@ export default function Footer({ locale = "fr" }: FooterProps) {
                   className={styles.footerLink}
                 >
                   {text.services}
+                </a>
+              </li>
+              <li>
+                <a
+                  onClick={() => scrollToSection("notre-mission")}
+                  style={{ cursor: "pointer" }}
+                  aria-label="En savoir plus sur notre projet éducatif"
+                  className={styles.footerLink}
+                >
+                  {text.mission}
                 </a>
               </li>
               <li>
@@ -166,6 +191,65 @@ export default function Footer({ locale = "fr" }: FooterProps) {
                 >
                   {text.legal}
                 </Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        {/* Section Notre Approche */}
+        <div className={styles.footerSection}>
+          <h3 className={styles.footerHeading}>{text.approach}</h3>
+          <nav aria-label="Footer approach navigation">
+            <ul className={styles.footerLinks}>
+              <li>
+                <a
+                  onClick={() => scrollToSection("notre-public")}
+                  style={{ cursor: "pointer" }}
+                  aria-label="Découvrir notre public et nos spécificités"
+                  className={styles.footerLink}
+                >
+                  {text.publicSpecificites}
+                </a>
+              </li>
+              <li>
+                <a
+                  onClick={() => scrollToSection("nos-principes-action")}
+                  style={{ cursor: "pointer" }}
+                  aria-label="Découvrir nos principes d'action"
+                  className={styles.footerLink}
+                >
+                  {text.principes}
+                </a>
+              </li>
+              <li>
+                <a
+                  onClick={() => scrollToSection("nos-types-accueil")}
+                  style={{ cursor: "pointer" }}
+                  aria-label="Découvrir nos types d'accueil"
+                  className={styles.footerLink}
+                >
+                  {text.typesAccueil}
+                </a>
+              </li>
+              <li>
+                <a
+                  onClick={() => scrollToSection("nos-lieux")}
+                  style={{ cursor: "pointer" }}
+                  aria-label="Découvrir nos lieux de vie"
+                  className={styles.footerLink}
+                >
+                  {text.lieux}
+                </a>
+              </li>
+              <li>
+                <a
+                  onClick={() => scrollToSection("nos-partenaires")}
+                  style={{ cursor: "pointer" }}
+                  aria-label="Découvrir nos partenaires"
+                  className={styles.footerLink}
+                >
+                  {text.partenaires}
+                </a>
               </li>
             </ul>
           </nav>

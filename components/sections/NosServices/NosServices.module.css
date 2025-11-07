@@ -1,3 +1,64 @@
 .servicesSection {
   /* Styles spécifiques pour la section Nos Services si nécessaire */
 }
+
+.accordionCard {
+  max-width: 1040px;
+  margin: 2rem auto 1.5rem auto;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.accordionHeader {
+  padding-bottom: 1rem !important;
+  transition: padding 0.3s ease;
+}
+
+.toggleBtn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.toggleBtn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.8);
+  transform: scale(1.05);
+}
+
+.toggleBtn:active {
+  transform: scale(0.95);
+}
+
+.toggleIcon {
+  line-height: 1;
+  display: block;
+  margin-top: -2px;
+}
+
+.accordionContent {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+/* Responsive Mobile */
+@media (max-width: 768px) {
+  .accordionCard {
+    max-width: 100%;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+}

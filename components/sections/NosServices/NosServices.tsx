@@ -1,8 +1,27 @@
 "use client";
 
+import { useState, useRef, useEffect } from "react";
 import styles from "./NosServices.module.css";
 
 export default function NosServices() {
+  const [isOpen, setIsOpen] = useState(false);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  const toggle = () => {
+    setIsOpen((prev) => !prev);
+  };
+
+  useEffect(() => {
+    const el = contentRef.current;
+    if (el) {
+      if (isOpen) {
+        el.style.maxHeight = el.scrollHeight + "px";
+      } else {
+        el.style.maxHeight = "0px";
+      }
+    }
+  }, [isOpen]);
+
   return (
     <section
       id="nos-services"
@@ -41,8 +60,9 @@ export default function NosServices() {
               <div>
                 <h5>Suivi Santé</h5>
                 <p>
-                  Accès aux soins médicaux et accompagnement dans le suivi de
-                  santé globale.
+                  Visites médicales de prévention sur site assurées par Thierry,
+                  médecin et président de l&apos;association. Accès aux soins
+                  médicaux et accompagnement dans le suivi de santé globale.
                 </p>
               </div>
             </div>
@@ -90,44 +110,72 @@ export default function NosServices() {
         {/* Section Insertion Professionnelle */}
         <div className="row mt-5">
           <div className="col-12">
-            <div className="card bg-phoenix-blue text-white">
-              <div className="card-body">
-                <h4 className="card-title mb-3">
-                  💼 Insertion Professionnelle
-                </h4>
-                <p className="card-text">
-                  L&apos;accompagnement vers l&apos;insertion professionnelle
-                  est au cœur de notre projet. Nous aidons chaque jeune à
-                  construire son avenir et à définir son projet professionnel à
-                  travers la rencontre et le tissage d&apos;une relation de
-                  confiance.
-                </p>
-                <div className="row mt-3">
-                  <div className="col-md-6">
-                    <h6>🎯 Nos actions :</h6>
-                    <ul>
-                      <li>Lien avec la Mission Locale et la Garantie Jeunes</li>
-                      <li>
-                        Conventions internes pour accès aux stages
-                        professionnels
-                      </li>
-                      <li>
-                        Insertion dans des clubs sportifs pour la socialisation
-                      </li>
-                      <li>
-                        Découverte de métiers variés (bâtiment, informatique,
-                        commerce, restauration, espaces verts, automobile...)
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="col-md-6">
-                    <h6>🤝 Notre réseau d&apos;entrepreneurs :</h6>
-                    <p className="mb-0">
-                      Un solide réseau d&apos;entrepreneurs dans le bassin
-                      Occitanie accepte de faire découvrir leur activité aux
-                      jeunes par le biais de stages en entreprise, favorisant
-                      ainsi leur orientation et leur insertion professionnelle.
-                    </p>
+            <div className={`card bg-phoenix-blue text-white ${styles.accordionCard}`}>
+              <div
+                className={`card-body ${styles.accordionHeader}`}
+                onClick={toggle}
+                style={{ cursor: 'pointer' }}
+              >
+                <div className="d-flex align-items-center">
+                  <button
+                    className={styles.toggleBtn}
+                    aria-expanded={isOpen}
+                    aria-controls="insertion-content"
+                    aria-label="Toggle insertion professionnelle"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggle();
+                    }}
+                  >
+                    <span className={styles.toggleIcon}>
+                      {isOpen ? "−" : "+"}
+                    </span>
+                  </button>
+                  <h4 className="card-title mb-0 ms-3">
+                    💼 Insertion Professionnelle
+                  </h4>
+                </div>
+              </div>
+              <div
+                id="insertion-content"
+                ref={contentRef}
+                className={styles.accordionContent}
+              >
+                <div className="card-body pt-0">
+                  <p className="card-text">
+                    L&apos;accompagnement vers l&apos;insertion professionnelle
+                    est au cœur de notre projet. Nous aidons chaque jeune à
+                    construire son avenir et à définir son projet professionnel à
+                    travers la rencontre et le tissage d&apos;une relation de
+                    confiance.
+                  </p>
+                  <div className="row mt-3">
+                    <div className="col-md-6">
+                      <h6>🎯 Nos actions :</h6>
+                      <ul>
+                        <li>Lien avec la Mission Locale et la Garantie Jeunes</li>
+                        <li>
+                          Conventions internes pour accès aux stages
+                          professionnels
+                        </li>
+                        <li>
+                          Insertion dans des clubs sportifs pour la socialisation
+                        </li>
+                        <li>
+                          Découverte de métiers variés (bâtiment, informatique,
+                          commerce, restauration, espaces verts, automobile...)
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="col-md-6">
+                      <h6>🤝 Notre réseau d&apos;entrepreneurs :</h6>
+                      <p className="mb-0">
+                        Un solide réseau d&apos;entrepreneurs dans le bassin
+                        Occitanie accepte de faire découvrir leur activité aux
+                        jeunes par le biais de stages en entreprise, favorisant
+                        ainsi leur orientation et leur insertion professionnelle.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
