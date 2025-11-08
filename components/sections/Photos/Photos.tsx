@@ -4,15 +4,64 @@ import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import styles from "./Photos.module.css";
 
+interface PhotoData {
+  src: string;
+  alt: string;
+  caption: string;
+}
+
 export default function Photos() {
   const [isOpen, setIsOpen] = useState(false);
-  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+  const [lightboxImage, setLightboxImage] = useState<PhotoData | null>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+
+  const photos: PhotoData[] = [
+    {
+      src: "/PlusdePhotos/ecolieu.png",
+      alt: "Écolieu",
+      caption: "Éco-lieu La Vigière - Jardin partagé à Remoulins",
+    },
+    {
+      src: "/PlusdePhotos/piscine.png",
+      alt: "Piscine",
+      caption: "Piscine du lieu de vie - Moments de détente et de convivialité",
+    },
+    {
+      src: "/PlusdePhotos/sapinnoel.png",
+      alt: "Sapin de Noël",
+      caption: "Sapin de Noël - Moments festifs partagés ensemble",
+    },
+    {
+      src: "/PlusdePhotos/bureau.jpeg",
+      alt: "Bureau",
+      caption: "Bureau - Espace de travail calme pour les devoirs et l'étude",
+    },
+    {
+      src: "/PlusdePhotos/chambre.jpeg",
+      alt: "Chambre",
+      caption: "Chambre individuelle - Un espace personnel pour chaque jeune",
+    },
+    {
+      src: "/PlusdePhotos/cusine.jpeg",
+      alt: "Cuisine",
+      caption: "Cuisine - Lieu de partage et d'apprentissage du quotidien",
+    },
+    {
+      src: "/PlusdePhotos/sallemanger.jpeg",
+      alt: "Salle à manger",
+      caption: "Salle à manger - Moments de repas conviviaux en famille",
+    },
+    {
+      src: "/PlusdePhotos/salon.jpeg",
+      alt: "Salon",
+      caption: "Salon - Espace de détente et de vie commune",
+    },
+  ];
 
   const toggle = () => setIsOpen((prev) => !prev);
 
-  const openLightbox = (imageSrc: string) => {
-    setLightboxImage(imageSrc);
+  const openLightbox = (photo: PhotoData) => {
+    setLightboxImage(photo);
   };
 
   const closeLightbox = () => {
@@ -74,158 +123,28 @@ export default function Photos() {
         className={styles.accordionContent}
       >
         <div className={`card-body pt-0 ${styles.photoGallery}`}>
-          <div
-            className={styles.photoWrapper}
-            onClick={() => openLightbox("/PlusdePhotos/ecolieu.png")}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                openLightbox("/PlusdePhotos/ecolieu.png");
-              }
-            }}
-          >
-            <Image
-              src="/PlusdePhotos/ecolieu.png"
-              alt="Écolieu"
-              className={styles.photo}
-              width={250}
-              height={250}
-            />
-          </div>
-          <div
-            className={styles.photoWrapper}
-            onClick={() => openLightbox("/PlusdePhotos/piscine.png")}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                openLightbox("/PlusdePhotos/piscine.png");
-              }
-            }}
-          >
-            <Image
-              src="/PlusdePhotos/piscine.png"
-              alt="Piscine"
-              className={styles.photo}
-              width={250}
-              height={250}
-            />
-          </div>
-          <div
-            className={styles.photoWrapper}
-            onClick={() => openLightbox("/PlusdePhotos/sapinnoel.png")}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                openLightbox("/PlusdePhotos/sapinnoel.png");
-              }
-            }}
-          >
-            <Image
-              src="/PlusdePhotos/sapinnoel.png"
-              alt="Sapin de Noël"
-              className={styles.photo}
-              width={250}
-              height={250}
-            />
-          </div>
-          <div
-            className={styles.photoWrapper}
-            onClick={() => openLightbox("/PlusdePhotos/bureau.jpeg")}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                openLightbox("/PlusdePhotos/bureau.jpeg");
-              }
-            }}
-          >
-            <Image
-              src="/PlusdePhotos/bureau.jpeg"
-              alt="Sapin de Noël"
-              className={styles.photo}
-              width={250}
-              height={250}
-            />
-          </div>
-          <div
-            className={styles.photoWrapper}
-            onClick={() => openLightbox("/PlusdePhotos/chambre.jpeg")}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                openLightbox("/PlusdePhotos/chambre.jpeg");
-              }
-            }}
-          >
-            <Image
-              src="/PlusdePhotos/chambre.jpeg"
-              alt="Sapin de Noël"
-              className={styles.photo}
-              width={250}
-              height={250}
-            />
-          </div>
-          <div
-            className={styles.photoWrapper}
-            onClick={() => openLightbox("/PlusdePhotos/cusine.jpeg")}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                openLightbox("/PlusdePhotos/cusine.jpeg");
-              }
-            }}
-          >
-            <Image
-              src="/PlusdePhotos/cusine.jpeg"
-              alt="Sapin de Noël"
-              className={styles.photo}
-              width={250}
-              height={250}
-            />
-          </div>
-          <div
-            className={styles.photoWrapper}
-            onClick={() => openLightbox("/PlusdePhotos/sallemanger.jpeg")}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                openLightbox("/PlusdePhotos/sallemanger.jpeg");
-              }
-            }}
-          >
-            <Image
-              src="/PlusdePhotos/sallemanger.jpeg"
-              alt="Sapin de Noël"
-              className={styles.photo}
-              width={250}
-              height={250}
-            />
-          </div>
-          <div
-            className={styles.photoWrapper}
-            onClick={() => openLightbox("/PlusdePhotos/salon.jpeg")}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                openLightbox("/PlusdePhotos/salon.jpeg");
-              }
-            }}
-          >
-            <Image
-              src="/PlusdePhotos/salon.jpeg"
-              alt="Sapin de Noël"
-              className={styles.photo}
-              width={250}
-              height={250}
-            />
-          </div>
+          {photos.map((photo, index) => (
+            <div
+              key={index}
+              className={styles.photoWrapper}
+              onClick={() => openLightbox(photo)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  openLightbox(photo);
+                }
+              }}
+            >
+              <Image
+                src={photo.src}
+                alt={photo.alt}
+                className={styles.photo}
+                width={250}
+                height={250}
+              />
+            </div>
+          ))}
         </div>
       </div>
 
@@ -239,14 +158,21 @@ export default function Photos() {
             >
               ×
             </button>
-            <Image
-              src={lightboxImage}
-              alt="Image agrandie"
-              className={styles.lightboxImage}
-              onClick={(e) => e.stopPropagation()}
-              fill
-              style={{ objectFit: "contain" }}
-            />
+            <div className={styles.lightboxImageWrapper}>
+              <Image
+                src={lightboxImage.src}
+                alt={lightboxImage.alt}
+                className={styles.lightboxImage}
+                onClick={(e) => e.stopPropagation()}
+                fill
+                style={{ objectFit: "contain" }}
+              />
+              {lightboxImage.caption && (
+                <div className={styles.photoCaption}>
+                  <h5>{lightboxImage.caption}</h5>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       )}
