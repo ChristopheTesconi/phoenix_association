@@ -131,6 +131,101 @@ export default function Photos() {
               height={250}
             />
           </div>
+          <div
+            className={styles.photoWrapper}
+            onClick={() => openLightbox("/PlusdePhotos/bureau.jpeg")}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                openLightbox("/PlusdePhotos/bureau.jpeg");
+              }
+            }}
+          >
+            <Image
+              src="/PlusdePhotos/bureau.jpeg"
+              alt="Sapin de Noël"
+              className={styles.photo}
+              width={250}
+              height={250}
+            />
+          </div>
+          <div
+            className={styles.photoWrapper}
+            onClick={() => openLightbox("/PlusdePhotos/chambre.jpeg")}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                openLightbox("/PlusdePhotos/chambre.jpeg");
+              }
+            }}
+          >
+            <Image
+              src="/PlusdePhotos/chambre.jpeg"
+              alt="Sapin de Noël"
+              className={styles.photo}
+              width={250}
+              height={250}
+            />
+          </div>
+          <div
+            className={styles.photoWrapper}
+            onClick={() => openLightbox("/PlusdePhotos/cusine.jpeg")}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                openLightbox("/PlusdePhotos/cusine.jpeg");
+              }
+            }}
+          >
+            <Image
+              src="/PlusdePhotos/cusine.jpeg"
+              alt="Sapin de Noël"
+              className={styles.photo}
+              width={250}
+              height={250}
+            />
+          </div>
+          <div
+            className={styles.photoWrapper}
+            onClick={() => openLightbox("/PlusdePhotos/sallemanger.jpeg")}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                openLightbox("/PlusdePhotos/sallemanger.jpeg");
+              }
+            }}
+          >
+            <Image
+              src="/PlusdePhotos/sallemanger.jpeg"
+              alt="Sapin de Noël"
+              className={styles.photo}
+              width={250}
+              height={250}
+            />
+          </div>
+          <div
+            className={styles.photoWrapper}
+            onClick={() => openLightbox("/PlusdePhotos/salon.jpeg")}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                openLightbox("/PlusdePhotos/salon.jpeg");
+              }
+            }}
+          >
+            <Image
+              src="/PlusdePhotos/salon.jpeg"
+              alt="Sapin de Noël"
+              className={styles.photo}
+              width={250}
+              height={250}
+            />
+          </div>
         </div>
       </div>
 
