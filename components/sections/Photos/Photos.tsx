@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 import styles from "./Photos.module.css";
 
 export default function Photos() {
@@ -84,10 +85,9 @@ export default function Photos() {
               }
             }}
           >
-            <img
+            <Image
               src="/PlusdePhotos/ecolieu.png"
               alt="Écolieu"
-              loading="lazy"
               className={styles.photo}
               width={250}
               height={250}
@@ -104,10 +104,9 @@ export default function Photos() {
               }
             }}
           >
-            <img
+            <Image
               src="/PlusdePhotos/piscine.png"
               alt="Piscine"
-              loading="lazy"
               className={styles.photo}
               width={250}
               height={250}
@@ -124,10 +123,9 @@ export default function Photos() {
               }
             }}
           >
-            <img
+            <Image
               src="/PlusdePhotos/sapinnoel.png"
               alt="Sapin de Noël"
-              loading="lazy"
               className={styles.photo}
               width={250}
               height={250}
@@ -146,11 +144,13 @@ export default function Photos() {
             >
               ×
             </button>
-            <img
+            <Image
               src={lightboxImage}
               alt="Image agrandie"
               className={styles.lightboxImage}
               onClick={(e) => e.stopPropagation()}
+              fill
+              style={{ objectFit: "contain" }}
             />
           </div>
         </div>
