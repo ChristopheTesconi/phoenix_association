@@ -28,6 +28,14 @@ body {
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Prevent horizontal overflow on mobile */
+body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
 }
 
 /* Custom utility classes */
@@ -45,4 +53,28 @@ html {
 .card-hover:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Responsive images and iframes */
+img, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Fix Bootstrap row overflow on mobile */
+@media (max-width: 768px) {
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .row > * {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }
