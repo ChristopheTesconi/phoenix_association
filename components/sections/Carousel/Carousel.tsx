@@ -13,17 +13,17 @@ export default function Carousel() {
       caption: "Accueil Phoenix",
     },
     {
-      src: "/Carousel/fresque.png",
+      src: "/Carousel/fresque.jpeg",
       alt: "Fresque murale",
       caption: "Fresque murale",
     },
     {
-      src: "/Carousel/neige.png",
+      src: "/Carousel/neige.jpeg",
       alt: "Paysage enneigé",
       caption: "Paysage enneigé",
     },
     {
-      src: "/Carousel/salon.png",
+      src: "/Carousel/salon.jpeg",
       alt: "Salon convivial",
       caption: "Salon convivial",
     },

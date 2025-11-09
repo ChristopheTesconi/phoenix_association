@@ -17,17 +17,17 @@ export default function Photos() {
 
   const photos: PhotoData[] = [
     {
-      src: "/PlusdePhotos/ecolieu.png",
+      src: "/PlusdePhotos/ecolieu.jpeg",
       alt: "Écolieu",
       caption: "Éco-lieu La Vigière - Jardin partagé à Remoulins",
     },
     {
-      src: "/PlusdePhotos/piscine.png",
+      src: "/PlusdePhotos/piscine.jpeg",
       alt: "Piscine",
       caption: "Piscine du lieu de vie - Moments de détente et de convivialité",
     },
     {
-      src: "/PlusdePhotos/sapinnoel.png",
+      src: "/PlusdePhotos/sapinnoel.jpeg",
       alt: "Sapin de Noël",
       caption: "Sapin de Noël - Moments festifs partagés ensemble",
     },
