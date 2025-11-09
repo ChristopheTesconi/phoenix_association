@@ -47,9 +47,12 @@ export default function MentionsLegales() {
             <h2>Hébergement</h2>
             <p>
               Ce site est hébergé par :<br />
-              [Nom de l'hébergeur]<br />
-              [Adresse de l'hébergeur]<br />
-              Téléphone : [Numéro de téléphone]
+              <strong>o2switch</strong><br />
+              222-224 Boulevard Gustave Flaubert<br />
+              63000 Clermont-Ferrand<br />
+              France<br />
+              Téléphone : <a href="tel:+33444446040">04 44 44 60 40</a><br />
+              Site web : <a href="https://www.o2switch.fr" target="_blank" rel="noopener noreferrer">www.o2switch.fr</a>
             </p>
           </section>
 

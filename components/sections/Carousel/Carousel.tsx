@@ -27,6 +27,10 @@ export default function Carousel() {
       alt: "Salon convivial",
       caption: "Salon convivial",
     },
+    {
+      src: "/Carousel/entrée2.jpeg",
+      alt: "Accueil",
+    },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);

@@ -86,7 +86,7 @@ export default function Contact() {
         <div className="col-lg-8 mx-auto">
           {/* Lieux principaux */}
           <div className="row mt-1">
-            <div className="col-md-6">
+            <div className="col-md-6 mb-3 mb-md-0">
               <a
                 href="https://www.google.com/maps/search/?api=1&query=9+rue+de+la+marine+30230+Rodilhan+France"
                 target="_blank"
@@ -114,7 +114,7 @@ export default function Contact() {
                 </div>
               </a>
             </div>
-            <div className="col-md-6">
+            <div className="col-md-6 mb-3 mb-md-0">
               <a
                 href="https://www.google.com/maps/search/?api=1&query=49+rue+Salomon+Reinach+30000+Nîmes+France"
                 target="_blank"
@@ -142,7 +142,7 @@ export default function Contact() {
 
           {/* Lieux d'activités */}
           <div className="row mt-4">
-            <div className="col-md-6">
+            <div className="col-md-6 mb-3 mb-md-0">
               <a
                 href="https://www.google.com/maps/search/?api=1&query=La+Vigière+Remoulins+France"
                 target="_blank"
@@ -170,7 +170,7 @@ export default function Contact() {
                 </div>
               </a>
             </div>
-            <div className="col-md-6">
+            <div className="col-md-6 mb-3 mb-md-0">
               <a
                 href="https://www.google.com/maps/search/?api=1&query=Camping+de+l'Espiguette+Grau-du-Roi+France"
                 target="_blank"

@@ -150,14 +150,14 @@ export default function Photos() {
 
       {lightboxImage && (
         <div className={styles.lightbox} onClick={closeLightbox}>
+          <button
+            className={styles.lightboxClose}
+            onClick={closeLightbox}
+            aria-label="Fermer"
+          >
+            ×
+          </button>
           <div className={styles.lightboxContent}>
-            <button
-              className={styles.lightboxClose}
-              onClick={closeLightbox}
-              aria-label="Fermer"
-            >
-              ×
-            </button>
             <div className={styles.lightboxImageWrapper}>
               <Image
                 src={lightboxImage.src}
@@ -167,13 +167,13 @@ export default function Photos() {
                 fill
                 style={{ objectFit: "contain" }}
               />
-              {lightboxImage.caption && (
-                <div className={styles.photoCaption}>
-                  <h5>{lightboxImage.caption}</h5>
-                </div>
-              )}
             </div>
           </div>
+          {lightboxImage.caption && (
+            <div className={styles.photoCaption}>
+              <h5>{lightboxImage.caption}</h5>
+            </div>
+          )}
         </div>
       )}
     </div>

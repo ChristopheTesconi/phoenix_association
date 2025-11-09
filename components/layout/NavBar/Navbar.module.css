@@ -32,6 +32,15 @@
   color: #002b36 !important;
 }
 
+/* Animation plus fluide pour le menu mobile */
+.navbar :global(.navbar-collapse) {
+  transition: height 0.2s ease-in-out, opacity 0.15s ease-in-out;
+}
+
+.navbar :global(.navbar-collapse.collapsing) {
+  transition: height 0.2s ease-in-out;
+}
+
 /* Responsive : taille normale sur mobile */
 @media (max-width: 991px) {
   .navbar :global(.nav-link) {

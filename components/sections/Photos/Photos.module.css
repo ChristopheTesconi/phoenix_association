@@ -202,4 +202,37 @@
     height: auto;
     aspect-ratio: 1;
   }
+
+  /* Ajustements lightbox mobile */
+  .lightboxContent {
+    width: 100vw;
+    height: 80vh;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .lightboxImageWrapper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .lightboxClose {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 99999;
+    background: rgba(181, 137, 0, 0.9);
+    color: white;
+  }
+
+  .photoCaption {
+    position: fixed;
+    bottom: 20px;
+  }
+
+  .photoCaption h5 {
+    font-size: 0.9rem;
+  }
 }

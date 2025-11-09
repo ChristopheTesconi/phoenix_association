@@ -6,25 +6,27 @@ import Script from "next/script";
 
 export const metadata: Metadata = {
   title: {
-    default: "Phoenix Accueil - Lieu de Vie et d'Accueil dans le Gard",
+    default: "Phoenix Accueil - Lieu de Vie et d'Accueil Gard | Rodilhan & Nîmes",
     template: "%s | Phoenix Accueil"
   },
-  description: "Phoenix Accueil - Lieu de Vie et d'Accueil pour enfants, adolescents et jeunes majeurs en difficulté à Rodilhan et Nîmes (Gard). Accompagnement global et personnalisé en protection de l'enfance depuis 20 ans.",
-  keywords: ["lieu de vie", "accueil", "jeunes", "adolescents", "protection enfance", "Gard", "Rodilhan", "Nîmes", "accompagnement éducatif", "jeunes majeurs", "mineurs non accompagnés", "MNA", "ASE"],
+  description: "Lieu de Vie et d'Accueil pour enfants, adolescents et jeunes majeurs en protection de l'enfance à Rodilhan et Nîmes (Gard). Accompagnement éducatif personnalisé, accueil permanent et séquentiel. 20 ans d'expérience dans l'accompagnement global des jeunes en difficulté.",
+  keywords: ["lieu de vie et d'accueil", "LVA", "protection de l'enfance", "Gard", "Rodilhan", "Nîmes", "accompagnement éducatif", "jeunes majeurs", "mineurs non accompagnés", "MNA", "ASE", "accueil permanent", "accueil séquentiel", "ITEP", "jeunes en difficulté", "Occitanie"],
   authors: [{ name: "Phoenix Accueil" }],
   creator: "Phoenix Accueil",
   publisher: "Phoenix Accueil",
-  metadataBase: new URL('https://www.phoenix-accueil.fr'),
+  metadataBase: new URL('https://www.phoenixaccueil.fr'),
   alternates: {
     canonical: '/',
   },
+  applicationName: 'Phoenix Accueil',
+  category: 'social services',
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
-    url: 'https://www.phoenix-accueil.fr',
+    url: 'https://www.phoenixaccueil.fr',
     siteName: 'Phoenix Accueil',
-    title: 'Phoenix Accueil - Lieu de Vie et d\'Accueil dans le Gard',
-    description: 'Lieu de Vie et d\'Accueil pour enfants, adolescents et jeunes majeurs en protection de l\'enfance à Rodilhan et Nîmes (Gard). Accompagnement global depuis 20 ans.',
+    title: 'Phoenix Accueil - Lieu de Vie et d\'Accueil Gard | Rodilhan & Nîmes',
+    description: 'Lieu de Vie et d\'Accueil pour enfants, adolescents et jeunes majeurs en protection de l\'enfance à Rodilhan et Nîmes (Gard). Accompagnement éducatif personnalisé, accueil permanent et séquentiel. 20 ans d\'expérience.',
     images: [
       {
         url: '/phoenix_fav.JPG',
@@ -36,8 +38,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Phoenix Accueil - Lieu de Vie et d\'Accueil dans le Gard',
-    description: 'Lieu de Vie et d\'Accueil pour enfants, adolescents et jeunes majeurs en protection de l\'enfance à Rodilhan et Nîmes (Gard).',
+    title: 'Phoenix Accueil - Lieu de Vie et d\'Accueil Gard | Rodilhan & Nîmes',
+    description: 'Lieu de Vie et d\'Accueil pour enfants, adolescents et jeunes majeurs en protection de l\'enfance. Accompagnement éducatif personnalisé depuis 20 ans.',
     images: ['/phoenix_fav.JPG'],
   },
   robots: {
@@ -63,24 +65,36 @@ export default function RootLayout({
 }>) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": ["Organization", "LocalBusiness", "HealthAndBeautyBusiness"],
     "name": "Phoenix Accueil",
-    "alternateName": "Phoenix Accueil - Lieu de Vie et d'Accueil",
-    "url": "https://www.phoenix-accueil.fr",
-    "logo": "https://www.phoenix-accueil.fr/phoenix_fav.JPG",
+    "alternateName": "Association Phoenix Accueil",
+    "legalName": "Association Phoenix Accueil",
+    "url": "https://www.phoenixaccueil.fr",
+    "logo": "https://www.phoenixaccueil.fr/phoenix_fav.JPG",
+    "image": "https://www.phoenixaccueil.fr/phoenix_fav.JPG",
     "description": "Lieu de Vie et d'Accueil pour enfants, adolescents et jeunes majeurs en protection de l'enfance à Rodilhan et Nîmes (Gard). Accompagnement global et personnalisé depuis 20 ans.",
+    "telephone": "+33680422230",
+    "email": "association@phoenixaccueil.org",
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "9 rue de la marine",
       "addressLocality": "Rodilhan",
-      "addressRegion": "Gard",
+      "addressRegion": "Occitanie",
       "postalCode": "30230",
       "addressCountry": "FR"
     },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "43.8281",
+      "longitude": "4.4266"
+    },
     "contactPoint": {
       "@type": "ContactPoint",
+      "telephone": "+33680422230",
       "contactType": "customer service",
+      "email": "association@phoenixaccueil.org",
       "areaServed": "FR",
-      "availableLanguage": "French"
+      "availableLanguage": ["French"]
     },
     "sameAs": [],
     "foundingDate": "2004",
@@ -88,7 +102,30 @@ export default function RootLayout({
       "@type": "QuantitativeValue",
       "value": "10"
     },
-    "serviceType": ["Protection de l'enfance", "Accompagnement éducatif", "Lieu de vie et d'accueil"]
+    "priceRange": "$$",
+    "areaServed": {
+      "@type": "Place",
+      "name": "Gard, Occitanie, France"
+    },
+    "slogan": "Comme le Phoenix qui renaît de ses cendres",
+    "makesOffer": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Accueil permanent et séquentiel",
+          "description": "Accueil à temps complet pour les enfants et adolescents nécessitant un cadre de vie stable et sécurisant"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Accompagnement jeunes majeurs",
+          "description": "Accueil dans notre annexe à Nîmes pour 3 jeunes majeurs, avec un accompagnement vers l'autonomie complète"
+        }
+      }
+    ]
   };
 
   return (

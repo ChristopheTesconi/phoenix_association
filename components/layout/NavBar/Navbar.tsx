@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { usePathname } from 'next/navigation';
 import styles from './Navbar.module.css';
 
@@ -15,6 +15,7 @@ export default function Navbar({ locale = 'fr' }: NavbarProps) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const pathname = usePathname();
   const isHomePage = pathname === '/';
+  const navbarRef = useRef<HTMLElement>(null);
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
@@ -24,20 +25,52 @@ export default function Navbar({ locale = 'fr' }: NavbarProps) {
     setDropdownOpen(!dropdownOpen);
   };
 
+  // Fonction pour obtenir la hauteur dynamique de la navbar
+  const getNavbarHeight = () => {
+    if (navbarRef.current) {
+      return navbarRef.current.offsetHeight;
+    }
+    return 70; // Fallback
+  };
+
+  // Fonction pour scroller vers une section
+  const scrollToSection = useCallback((sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const navbarHeight = getNavbarHeight();
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - navbarHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  }, []);
+
+  // Gérer le hash au chargement de la page (navigation cross-page)
+  useEffect(() => {
+    if (isHomePage && window.location.hash) {
+      const hash = window.location.hash.substring(1);
+      // Attendre que la page soit complètement chargée
+      setTimeout(() => {
+        scrollToSection(hash);
+      }, 100);
+    }
+  }, [pathname, isHomePage, scrollToSection]);
+
   const handleNavigation = (sectionId?: string) => {
+    // Fermer les menus immédiatement
+    setIsOpen(false);
+    setDropdownOpen(false);
+
     if (isHomePage) {
       if (sectionId) {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          const navbarHeight = 100;
-          const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-          const offsetPosition = elementPosition - navbarHeight;
-
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-          });
-        }
+        // Scroller immédiatement en parallèle de la fermeture du menu
+        // Le scroll et l'animation de fermeture se font en même temps pour plus de fluidité
+        requestAnimationFrame(() => {
+          scrollToSection(sectionId);
+        });
       } else {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
@@ -45,8 +78,6 @@ export default function Navbar({ locale = 'fr' }: NavbarProps) {
       // Si on n'est pas sur la page d'accueil, naviguer vers la page d'accueil avec l'ancre
       window.location.href = sectionId ? `/#${sectionId}` : '/';
     }
-    setIsOpen(false);
-    setDropdownOpen(false);
   };
 
   const navLinks = {
@@ -81,7 +112,7 @@ export default function Navbar({ locale = 'fr' }: NavbarProps) {
   const links = locale === 'en' ? navLinks.en : navLinks.fr;
 
   return (
-    <nav className={`navbar navbar-expand-lg navbar-dark sticky-top ${styles.navbar}`}>
+    <nav ref={navbarRef} className={`navbar navbar-expand-lg navbar-dark sticky-top ${styles.navbar}`}>
       <div className="container-fluid">
         <Link href="/" className={`navbar-brand ${styles.navbarBrand}`}>
           <Image

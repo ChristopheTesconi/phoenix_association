@@ -1,8 +1,44 @@
 "use client";
 
+import { useState, useRef, useEffect } from "react";
 import styles from "./NotreMission.module.css";
 
 export default function NotreMission() {
+  const [isVisionOpen, setIsVisionOpen] = useState(false);
+  const [isObjectifsOpen, setIsObjectifsOpen] = useState(false);
+  const visionContentRef = useRef<HTMLDivElement>(null);
+  const objectifsContentRef = useRef<HTMLDivElement>(null);
+
+  const toggleVision = () => {
+    setIsVisionOpen((prev) => !prev);
+  };
+
+  const toggleObjectifs = () => {
+    setIsObjectifsOpen((prev) => !prev);
+  };
+
+  useEffect(() => {
+    const el = visionContentRef.current;
+    if (el) {
+      if (isVisionOpen) {
+        el.style.maxHeight = el.scrollHeight + "px";
+      } else {
+        el.style.maxHeight = "0px";
+      }
+    }
+  }, [isVisionOpen]);
+
+  useEffect(() => {
+    const el = objectifsContentRef.current;
+    if (el) {
+      if (isObjectifsOpen) {
+        el.style.maxHeight = el.scrollHeight + "px";
+      } else {
+        el.style.maxHeight = "0px";
+      }
+    }
+  }, [isObjectifsOpen]);
+
   return (
     <section
       id="notre-mission"
@@ -62,34 +98,90 @@ export default function NotreMission() {
       {/* Vision et Objectifs */}
       <div className="row mb-5">
         <div className="col-md-6 mb-4">
-          <div className="card h-100 bg-primary text-white card-hover">
-            <div className="card-body">
-              <h3 className="card-title">🔭 Notre Vision</h3>
-              <p className="card-text">
-                Offrir à chaque jeune accueilli un cadre de vie sécurisant et
-                bienveillant, où il peut se reconstruire, développer ses
-                compétences et construire un projet de vie réaliste et
-                épanouissant.
-              </p>
+          <div className="card bg-primary text-white">
+            <div
+              className={`card-body ${styles.accordionHeader}`}
+              onClick={toggleVision}
+              style={{ cursor: 'pointer' }}
+            >
+              <div className="d-flex align-items-center">
+                <button
+                  className={styles.toggleBtn}
+                  aria-expanded={isVisionOpen}
+                  aria-controls="vision-content"
+                  aria-label="Toggle vision"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    toggleVision();
+                  }}
+                >
+                  <span className={styles.toggleIcon}>
+                    {isVisionOpen ? "−" : "+"}
+                  </span>
+                </button>
+                <h3 className="card-title mb-0 ms-3">🔭 Notre Vision</h3>
+              </div>
+            </div>
+            <div
+              id="vision-content"
+              ref={visionContentRef}
+              className={styles.accordionContent}
+            >
+              <div className="card-body pt-0">
+                <p className="card-text mb-0">
+                  Offrir à chaque jeune accueilli un cadre de vie sécurisant et
+                  bienveillant, où il peut se reconstruire, développer ses
+                  compétences et construire un projet de vie réaliste et
+                  épanouissant.
+                </p>
+              </div>
             </div>
           </div>
         </div>
         <div className="col-md-6 mb-4">
-          <div className="card h-100 bg-secondary text-white card-hover">
-            <div className="card-body">
-              <h3 className="card-title">🎯 Nos Objectifs</h3>
-              <ul className="list-unstyled">
-                <li className="mb-2">
-                  ✓ Accompagner vers l&apos;autonomie et l&apos;insertion
-                </li>
-                <li className="mb-2">
-                  ✓ Assurer un suivi scolaire et éducatif adapté
-                </li>
-                <li className="mb-2">✓ Favoriser le développement personnel</li>
-                <li className="mb-2">
-                  ✓ Créer une dynamique de groupe positive
-                </li>
-              </ul>
+          <div className="card bg-secondary text-white">
+            <div
+              className={`card-body ${styles.accordionHeader}`}
+              onClick={toggleObjectifs}
+              style={{ cursor: 'pointer' }}
+            >
+              <div className="d-flex align-items-center">
+                <button
+                  className={styles.toggleBtn}
+                  aria-expanded={isObjectifsOpen}
+                  aria-controls="objectifs-content"
+                  aria-label="Toggle objectifs"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    toggleObjectifs();
+                  }}
+                >
+                  <span className={styles.toggleIcon}>
+                    {isObjectifsOpen ? "−" : "+"}
+                  </span>
+                </button>
+                <h3 className="card-title mb-0 ms-3">🎯 Nos Objectifs</h3>
+              </div>
+            </div>
+            <div
+              id="objectifs-content"
+              ref={objectifsContentRef}
+              className={styles.accordionContent}
+            >
+              <div className="card-body pt-0">
+                <ul className="list-unstyled mb-0">
+                  <li className="mb-2">
+                    ✓ Accompagner vers l&apos;autonomie et l&apos;insertion
+                  </li>
+                  <li className="mb-2">
+                    ✓ Assurer un suivi scolaire et éducatif adapté
+                  </li>
+                  <li className="mb-2">✓ Favoriser le développement personnel</li>
+                  <li className="mb-2">
+                    ✓ Créer une dynamique de groupe positive
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

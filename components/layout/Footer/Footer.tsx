@@ -64,11 +64,20 @@ export default function Footer({ locale = "fr" }: FooterProps) {
 
   const text = locale === "en" ? content.en : content.fr;
 
+  // Fonction pour obtenir la hauteur dynamique de la navbar
+  const getNavbarHeight = () => {
+    const navbar = document.querySelector('nav.navbar');
+    if (navbar) {
+      return (navbar as HTMLElement).offsetHeight;
+    }
+    return 70; // Fallback
+  };
+
   const scrollToSection = (sectionId: string) => {
     if (isHomePage) {
       const element = document.getElementById(sectionId);
       if (element) {
-        const navbarHeight = 100;
+        const navbarHeight = getNavbarHeight();
         const elementPosition =
           element.getBoundingClientRect().top + window.pageYOffset;
         const offsetPosition = elementPosition - navbarHeight;

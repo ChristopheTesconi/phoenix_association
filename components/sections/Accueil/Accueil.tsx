@@ -1,28 +1,92 @@
+"use client";
+
+import { useState, useRef, useEffect } from "react";
+import styles from "./Accueil.module.css";
+
 export default function Accueil() {
+  const [isIntroOpen, setIsIntroOpen] = useState(false);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  const toggleIntro = () => {
+    setIsIntroOpen((prev) => !prev);
+  };
+
+  useEffect(() => {
+    const el = contentRef.current;
+    if (el) {
+      if (isIntroOpen) {
+        el.style.maxHeight = el.scrollHeight + "px";
+      } else {
+        el.style.maxHeight = "0px";
+      }
+    }
+  }, [isIntroOpen]);
+
   return (
     <section className="container my-5">
       <div className="row">
         <div className="col-lg-10 mx-auto text-center">
           <h1 className="display-4 mb-4">Bienvenue à Phoenix Accueil</h1>
-          <p className="lead">
-            Bienvenue à notre lieu de vie Phoenix Accueil situé à Rodilhan, une
-            villa accueillante avec un grand jardin et une piscine, offrant un
-            cadre sûr et stimulant.
-          </p>
-          <p className="lead">
-            Nous accompagnons 6 enfants et adolescents en protection de
-            l&apos;enfance - accueil judiciaires, provisoires et mineurs non
-            accompagnés - ainsi que 3 jeunes majeurs dans notre annexe à Nîmes,
-            favorisant leur autonomie et leur insertion.
-          </p>
-          <p className="lead">
-            Notre structure propose un accompagnement global : scolaire,
-            éducatif, social et sanitaire. Nous disposons également d&apos;un jardin
-            partagé à Remoulins, collaborant avec des partenaires tels que
-            l&apos;ITEP, et organisons des séjours au camping de
-            l&apos;Espiguette, locataire de longue durée, pour des moments de
-            détente et d&apos;apprentissage en dehors de la villa.
-          </p>
+        </div>
+      </div>
+
+      {/* Accordéon Introduction à Phoenix */}
+      <div className="row">
+        <div className="col-lg-8 mx-auto">
+          <div className={`card bg-phoenix-blue text-white ${styles.accordionCard}`}>
+            <div
+              className={`card-body ${styles.accordionHeader}`}
+              onClick={toggleIntro}
+              style={{ cursor: 'pointer' }}
+            >
+              <div className="d-flex align-items-center">
+                <button
+                  className={styles.toggleBtn}
+                  aria-expanded={isIntroOpen}
+                  aria-controls="intro-content"
+                  aria-label="Toggle introduction"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    toggleIntro();
+                  }}
+                >
+                  <span className={styles.toggleIcon}>
+                    {isIntroOpen ? "−" : "+"}
+                  </span>
+                </button>
+                <h4 className="card-title mb-0 ms-3">
+                  Introduction à Phoenix
+                </h4>
+              </div>
+            </div>
+            <div
+              id="intro-content"
+              ref={contentRef}
+              className={styles.accordionContent}
+            >
+              <div className="card-body pt-0">
+                <p className="lead">
+                  Bienvenue à notre lieu de vie Phoenix Accueil situé à Rodilhan, une
+                  villa accueillante avec un grand jardin et une piscine, offrant un
+                  cadre sûr et stimulant.
+                </p>
+                <p className="lead">
+                  Nous accompagnons 6 enfants et adolescents en protection de
+                  l&apos;enfance - accueil judiciaires, provisoires et mineurs non
+                  accompagnés - ainsi que 3 jeunes majeurs dans notre annexe à Nîmes,
+                  favorisant leur autonomie et leur insertion.
+                </p>
+                <p className="lead mb-0">
+                  Notre structure propose un accompagnement global : scolaire,
+                  éducatif, social et sanitaire. Nous disposons également d&apos;un jardin
+                  partagé à Remoulins, collaborant avec des partenaires tels que
+                  l&apos;ITEP, et organisons des séjours au camping de
+                  l&apos;Espiguette, locataire de longue durée, pour des moments de
+                  détente et d&apos;apprentissage en dehors de la villa.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       {/* 20 ans du LVA */}
