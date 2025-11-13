@@ -87,7 +87,7 @@ export default function Contact() {
           <div className="row mt-1">
             <div className="col-md-6 mb-3 mb-md-0">
               <a
-                href="https://share.google/0BKud9jmVLNnCuRwb"
+                href="https://www.google.com/maps/search/?api=1&query=Phoenix+Accueil+9+Rue+de+la+Marine+30230+Rodilhan+France"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ textDecoration: "none", color: "inherit" }}
