@@ -33,11 +33,13 @@ export default function Accueil() {
       {/* Accordéon Introduction à Phoenix */}
       <div className="row">
         <div className="col-lg-8 mx-auto">
-          <div className={`card bg-phoenix-blue text-white ${styles.accordionCard}`}>
+          <div
+            className={`card bg-phoenix-blue text-white ${styles.accordionCard}`}
+          >
             <div
               className={`card-body ${styles.accordionHeader}`}
               onClick={toggleIntro}
-              style={{ cursor: 'pointer' }}
+              style={{ cursor: "pointer" }}
             >
               <div className="d-flex align-items-center">
                 <button
@@ -54,9 +56,7 @@ export default function Accueil() {
                     {isIntroOpen ? "−" : "+"}
                   </span>
                 </button>
-                <h4 className="card-title mb-0 ms-3">
-                  Introduction à Phoenix
-                </h4>
+                <h4 className="card-title mb-0 ms-3">Introduction à Phoenix</h4>
               </div>
             </div>
             <div
@@ -64,25 +64,26 @@ export default function Accueil() {
               ref={contentRef}
               className={styles.accordionContent}
             >
-              <div className="card-body pt-0">
+              <div className="card-body text-center pt-0">
                 <p className="lead">
-                  Bienvenue à notre lieu de vie Phoenix Accueil situé à Rodilhan, une
-                  villa accueillante avec un grand jardin et une piscine, offrant un
-                  cadre sûr et stimulant.
+                  Bienvenue à notre lieu de vie Phoenix Accueil situé à
+                  Rodilhan, une villa accueillante avec un grand jardin et une
+                  piscine, offrant un cadre sûr et stimulant.
                 </p>
                 <p className="lead">
                   Nous accompagnons 6 enfants et adolescents en protection de
-                  l&apos;enfance - accueil judiciaires, provisoires et mineurs non
-                  accompagnés - ainsi que 3 jeunes majeurs dans notre annexe à Nîmes,
-                  favorisant leur autonomie et leur insertion.
+                  l&apos;enfance - accueil judiciaires, provisoires et mineurs
+                  non accompagnés - ainsi que 3 jeunes majeurs dans notre annexe
+                  à Nîmes, favorisant leur autonomie et leur insertion.
                 </p>
                 <p className="lead mb-0">
                   Notre structure propose un accompagnement global : scolaire,
-                  éducatif, social et sanitaire. Nous disposons également d&apos;un jardin
-                  partagé à Remoulins, collaborant avec des partenaires tels que
-                  l&apos;ITEP, et organisons des séjours au camping de
-                  l&apos;Espiguette, locataire de longue durée, pour des moments de
-                  détente et d&apos;apprentissage en dehors de la villa.
+                  éducatif, social et sanitaire. Nous disposons également
+                  d&apos;un jardin partagé à Remoulins, collaborant avec des
+                  partenaires tels que l&apos;ITEP, et organisons des séjours au
+                  camping de l&apos;Espiguette, locataire de longue durée, pour
+                  des moments de détente et d&apos;apprentissage en dehors de la
+                  villa.
                 </p>
               </div>
             </div>

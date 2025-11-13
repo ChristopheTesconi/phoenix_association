@@ -1,5 +1,5 @@
 /* Import Bootswatch Solar theme */
-@import url('https://cdn.jsdelivr.net/npm/bootswatch@5.3.8/dist/solar/bootstrap.min.css');
+@import url("https://cdn.jsdelivr.net/npm/bootswatch@5.3.8/dist/solar/bootstrap.min.css");
 
 /* Custom CSS variables for Phoenix Association */
 :root {
@@ -18,8 +18,8 @@
 
 /* Global styles */
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -33,6 +33,7 @@ html {
 
 /* Prevent horizontal overflow on mobile */
 body {
+  padding-top: 70px; /* Ajuste cette valeur selon la hauteur réelle de ta navbar */
   overflow-x: hidden;
   width: 100%;
   position: relative;
@@ -52,11 +53,12 @@ body {
 
 .card-hover:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Responsive images and iframes */
-img, iframe {
+img,
+iframe {
   max-width: 100%;
   height: auto;
 }
