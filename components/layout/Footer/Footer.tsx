@@ -18,8 +18,8 @@ export default function Footer({ locale = "fr" }: FooterProps) {
       brand: "Phoenix Accueil",
       tagline: "Lieu de Vie et d'Accueil - Accompagnement bienveillant",
       address: "9 rue de la marine, 30230 Rodilhan (Gard)",
-      phone: "06 80 42 22 30",
-      email: "association@phoenixaccueil.org",
+      phone: "06 58 77 21 56",
+      email: "responsable-lva@phoenixaccueil.org",
       quickLinks: "Liens Rapides",
       approach: "Notre Approche",
       home: "Accueil",
@@ -41,8 +41,8 @@ export default function Footer({ locale = "fr" }: FooterProps) {
       brand: "Phoenix Accueil",
       tagline: "Living and Welcoming Place - Caring support",
       address: "9 rue de la marine, 30230 Rodilhan (Gard)",
-      phone: "06 80 42 22 30",
-      email: "association@phoenixaccueil.org",
+      phone: "06 58 77 21 56",
+      email: "responsable-lva@phoenixaccueil.org",
       quickLinks: "Quick Links",
       approach: "Our Approach",
       home: "Home",
@@ -66,7 +66,7 @@ export default function Footer({ locale = "fr" }: FooterProps) {
 
   // Fonction pour obtenir la hauteur dynamique de la navbar
   const getNavbarHeight = () => {
-    const navbar = document.querySelector('nav.navbar');
+    const navbar = document.querySelector("nav.navbar");
     if (navbar) {
       return (navbar as HTMLElement).offsetHeight;
     }

@@ -96,7 +96,7 @@ export default function RootLayout({
     description:
       "Lieu de Vie et d'Accueil pour enfants, adolescents et jeunes majeurs en protection de l'enfance à Rodilhan et Nîmes (Gard). Accompagnement global et personnalisé depuis 20 ans.",
     telephone: "+33680422230",
-    email: "association@phoenixaccueil.org",
+    email: "responsable-lva@phoenixaccueil.org",
     address: {
       "@type": "PostalAddress",
       streetAddress: "9 rue de la marine",
@@ -114,7 +114,7 @@ export default function RootLayout({
       "@type": "ContactPoint",
       telephone: "+33680422230",
       contactType: "customer service",
-      email: "association@phoenixaccueil.org",
+      email: "responsable-lva@phoenixaccueil.org",
       areaServed: "FR",
       availableLanguage: ["French"],
     },
